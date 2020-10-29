@@ -1,4 +1,4 @@
-export default function getAppointmentsForDay(state, day) {
+export function getAppointmentsForDay(state, day) {
   //... returns an array of appointments for that day
   // console.log(state.days);
   const results = [];
@@ -11,4 +11,15 @@ export default function getAppointmentsForDay(state, day) {
     results.push(state.appointments[app]);
   }
   return results;
+}
+
+export function getInterview(state, interview) {
+  // return a new object containing the interview data when we pass it an object that contains the interviewer.
+  if (interview) {
+    console.log(state.interviewers[interview.interviewer]);
+    const interviewer = state.interviewers[interview.interviewer];
+    return { ...interview, interviewer };
+  }
+  // Otherwise, the function should return null.
+  return null;
 }
