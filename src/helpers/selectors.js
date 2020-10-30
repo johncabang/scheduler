@@ -23,3 +23,18 @@ export function getInterview(state, interview) {
   // Otherwise, the function should return null.
   return null;
 }
+
+export function getInterviewersForDay(state, day) {
+  //... returns an array of interviewers for that day
+  // console.log(state.days);
+  const results = [];
+  const filteredDays = state.days.filter((d) => d.name === day);
+  // console.log(filteredDays);
+  if (filteredDays.length === 0) return results;
+  for (const app of filteredDays[0].interviewers) {
+    // console.log(filteredDays[0].interviewers);
+    // console.log(app);
+    results.push(state.interviewers[app]);
+  }
+  return results;
+}

@@ -29,7 +29,9 @@ export default function Appointment(props) {
       )}
       {/* back() function - from useVisualMode HOOK = to return to the EMPTY state when cancel button is clicked */}
       {/* Form interviewers set to empty array / getInterviewersForDay selector */}
-      {mode === CREATE && <Form interviewers={[]} onCancel={() => back()} />}
+      {mode === CREATE && (
+        <Form interviewers={props.interviewers} onCancel={() => back()} />
+      )}
     </article>
   );
 }
