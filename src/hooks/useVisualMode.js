@@ -8,9 +8,9 @@ export default function useVisualMode(initialMode) {
 
   function transition(newMode, replace = false) {
     if (!replace) {
-      setHistory([...history, newMode]);
+      setHistory((prev) => [...prev, newMode]);
     } else {
-      setHistory([...history.slice(0, history.length - 1), newMode]);
+      setHistory((prev) => [...prev.slice(0, prev.length - 1), newMode]);
     }
     setMode(newMode);
   }
@@ -19,7 +19,7 @@ export default function useVisualMode(initialMode) {
     console.log("this is history.length ----- " + history.length);
     if (history.length > 1) {
       setMode(history[history.length - 2]);
-      setHistory(history.slice(0, history.length - 1));
+      setHistory((prev) => [...prev.slice(0, history.length - 1)]);
     }
   }
 
