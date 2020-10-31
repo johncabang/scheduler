@@ -16,7 +16,9 @@ export function getAppointmentsForDay(state, day) {
 export function getInterview(state, interview) {
   // return a new object containing the interview data when we pass it an object that contains the interviewer.
   if (interview) {
-    console.log(state.interviewers[interview.interviewer]);
+    // console.log(
+    //   "what is this ----- " + state.interviewers[interview.interviewer]
+    // );
     const interviewer = state.interviewers[interview.interviewer];
     return { ...interview, interviewer };
   }
