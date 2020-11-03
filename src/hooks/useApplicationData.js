@@ -19,6 +19,13 @@ export default function useApplicationData(initial) {
       ...state.appointments,
       [id]: appointment,
     };
+    // # of spots remaining update
+    const days = state.days.map((day) => {
+      if (day.name === state.day) {
+        day.spots--;
+      }
+      return day;
+    });
     return axios
       .put(`/api/appointments/${id}`, appointment)
       .then(() => setState({ ...state, appointments }));
@@ -33,6 +40,13 @@ export default function useApplicationData(initial) {
       ...state.appointments,
       [id]: appointment,
     };
+    // # of spots remaining update
+    const days = state.days.map((day) => {
+      if (day.name === state.day) {
+        day.spots++;
+      }
+      return day;
+    });
     return axios
       .delete(`/api/appointments/${id}`)
       .then(() => setState({ ...state, appointments }));
