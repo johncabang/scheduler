@@ -5,6 +5,7 @@ import Button from "../Button";
 export default function Form(props) {
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  const [error, setError] = useState("");
 
   // reset form
   const reset = () => {
@@ -17,8 +18,16 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  const save = () => {
-    reset();
+  // const save = () => {
+  //   reset();
+  //   props.onSave(name, interviewer);
+  // };
+
+  const validate = () => {
+    if (name === "") {
+      setError("Student name cannot be blank");
+      return;
+    }
     props.onSave(name, interviewer);
   };
 
@@ -37,8 +46,10 @@ export default function Form(props) {
             /*
           This must be a controlled component
         */
+            data-testid="student-name-input"
           />
         </form>
+        <section className="appointment__validation">{error}</section>
         <InterviewerList
           interviewers={props.interviewers}
           // *** need fix/not showing interviewer name
@@ -52,7 +63,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={save}>
+          <Button confirm onClick={validate}>
             Save
           </Button>
         </section>
