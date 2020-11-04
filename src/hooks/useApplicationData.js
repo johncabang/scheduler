@@ -22,9 +22,17 @@ export default function useApplicationData(initial) {
       [id]: appointment,
     };
     // # of spots remaining update
+    // const days = state.days.map((day) => {
+    //   if (day.name === state.day) {
+    //     day.spots--;
+    //   }
+    //   return day;
+    // });
     const days = state.days.map((day) => {
       if (day.name === state.day) {
-        day.spots--;
+        day.spots = day.appointments.filter(
+          (elem) => appointments[elem].interview === null
+        ).length;
       }
       return day;
     });
@@ -43,9 +51,17 @@ export default function useApplicationData(initial) {
       [id]: appointment,
     };
     // # of spots remaining update
+    // const days = state.days.map((day) => {
+    //   if (day.name === state.day) {
+    //     day.spots++;
+    //   }
+    //   return day;
+    // });
     const days = state.days.map((day) => {
       if (day.name === state.day) {
-        day.spots++;
+        day.spots = day.appointments.filter(
+          (elem) => appointments[elem].interview === null
+        ).length;
       }
       return day;
     });
