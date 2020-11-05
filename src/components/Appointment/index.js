@@ -56,7 +56,6 @@ export default function Appointment(props) {
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
-      {/* transition() function - from useVisualMode HOOK = CREATE mode */}
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
         <Show
@@ -66,8 +65,6 @@ export default function Appointment(props) {
           onEdit={edit}
         />
       )}
-      {/* back() function - from useVisualMode HOOK = to return to the EMPTY state when cancel button is clicked */}
-      {/* Form interviewers set to empty array / getInterviewersForDay selector */}
       {mode === CREATE && (
         <Form
           interviewers={props.interviewers}

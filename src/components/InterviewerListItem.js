@@ -1,4 +1,5 @@
 import React from "react";
+
 import "components/InterviewerListItem.scss";
 
 const classNames = require("classnames");
@@ -16,7 +17,6 @@ export default function InterviewerListItem(props) {
         alt={props.name}
       />
       {props.selected && props.name}
-      {/* true && expression - if true/props.selected, props.name will appear in output */}
     </li>
   );
 }

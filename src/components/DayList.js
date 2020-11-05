@@ -1,4 +1,5 @@
 import React from "react";
+
 import DayListItem from "./DayListItem";
 
 export default function DayList(props) {
@@ -15,25 +16,3 @@ export default function DayList(props) {
   });
   return days;
 }
-
-// const items = props.items.map((item, index) => (
-//   <ListItem key={index}>{item}</ListItem>
-// ));
-// //...
-// return <div>{items}</div>;
-
-// function TweetList(props) {
-//   const tweets = props.tweets.map(tweet => {
-//     return (
-//       <Tweet
-//         key={tweet.id}
-//         name={tweet.name}
-//         avatar={tweet.avatar}
-//         content={tweet.content}
-//         date={tweet.date}
-//       />
-//     );
-//   });
-
-//   return tweets;
-// }

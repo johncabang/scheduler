@@ -12,22 +12,16 @@ export default function useApplicationData(initial) {
   const setDay = (day) => setState({ ...state, day });
 
   function bookInterview(id, interview) {
-    console.log(id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
     };
+
     const appointments = {
       ...state.appointments,
       [id]: appointment,
     };
-    // # of spots remaining update
-    // const days = state.days.map((day) => {
-    //   if (day.name === state.day) {
-    //     day.spots--;
-    //   }
-    //   return day;
-    // });
+
     const days = state.days.map((day) => {
       if (day.name === state.day) {
         day.spots = day.appointments.filter(
@@ -46,17 +40,12 @@ export default function useApplicationData(initial) {
       ...state.appointments[id],
       interview: null,
     };
+
     const appointments = {
       ...state.appointments,
       [id]: appointment,
     };
-    // # of spots remaining update
-    // const days = state.days.map((day) => {
-    //   if (day.name === state.day) {
-    //     day.spots++;
-    //   }
-    //   return day;
-    // });
+
     const days = state.days.map((day) => {
       if (day.name === state.day) {
         day.spots = day.appointments.filter(
